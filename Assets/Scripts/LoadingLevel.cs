@@ -11,8 +11,12 @@ public class LoadingLevel : MonoBehaviour
     public GameObject loadingScreen;
     public Image progressBar;
     public TextMeshProUGUI progressText;
+    public GameObject anybuttonPanel;
 
-
+    private void Start()
+    {
+        anybuttonPanel.SetActive(true);
+    }
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
@@ -43,6 +47,20 @@ public class LoadingLevel : MonoBehaviour
 
     }
 
+    public void PressAnyButton()
+    {
+        if(Input.anyKey)
+        {
+            anybuttonPanel.SetActive(false);
+
+        }
+
+
+    }
+    public void Update()
+    {
+        PressAnyButton();
+    }
 
 
 
