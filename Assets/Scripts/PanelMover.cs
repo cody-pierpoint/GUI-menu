@@ -18,6 +18,7 @@ public class PanelMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
      if(Input.GetKeyDown(KeyCode.Q))
         {
             timeToTransition = Time.time + transitionTime;               //make the transition

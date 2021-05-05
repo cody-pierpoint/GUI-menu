@@ -12,17 +12,45 @@ public class LoadingLevel : MonoBehaviour
     public Image progressBar;
     public TextMeshProUGUI progressText;
     public GameObject anybuttonPanel;
-
+    public GameObject mainmenuPanel;
+    public Animator transitions;
+    public float transitionTime = 1f;
+    public GameObject menuPanel;
+    public GameObject fadepanel;
+    public GameObject optionsPanel;
     private void Start()
     {
-        anybuttonPanel.SetActive(true);
+        fadepanel.SetActive(true);
+        transitions.SetTrigger("Start");
+        /*new WaitForSeconds(transitionTime);
+        if(transitionTime == 1f)
+        {
+            fadepanel.SetActive(false);
+            menuPanel.SetActive(true);
+            anybuttonPanel.SetActive(true);
+        }
+        */
     }
+
+    public void OptionsFadein()
+    {
+
+        transitions.SetTrigger("Start");
+
+    }
+    public void OptionsFadeOut()
+    {
+
+        transitions.SetTrigger("End");
+
+    }
+
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
         loadingScreen.SetActive(true);
 
-        while(!operation.isDone)
+        while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
 
@@ -49,12 +77,16 @@ public class LoadingLevel : MonoBehaviour
 
     public void PressAnyButton()
     {
-        if(Input.anyKey)
+        if (Input.anyKey)
         {
             anybuttonPanel.SetActive(false);
 
         }
+        if (anybuttonPanel.activeSelf == false)
+        {
+            mainmenuPanel.SetActive(true);
 
+        }
 
     }
     public void Update()
