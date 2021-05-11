@@ -19,11 +19,11 @@ public class Pause : MonoBehaviour
     {
         isPaused = true;
 
-        Time.timeScale = 0;
+       // Time.timeScale = 0;
 
         pausePanel.SetActive(true);
 
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
         
 
     }
@@ -31,9 +31,9 @@ public class Pause : MonoBehaviour
     public void UnPaused()
     {
         isPaused = false;
-        Time.timeScale = 0;
+       // Time.timeScale = 0;
         pausePanel.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
 
 
     }
@@ -55,17 +55,26 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (optionsMenu.activeSelf == false)
         {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                TogglePause();
+            }
+        }
+        
+       
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
             
 
-            if(!isPaused)
-            Paused();
+        //    if(!isPaused)
+        //    Paused();
 
-            else 
-            {
-                UnPaused();
-            }
+        //    else 
+        //    {
+        //        UnPaused();
+        //    }
             
             /*if(!optionsMenu.activeSelf)
              {
@@ -77,7 +86,7 @@ public class Pause : MonoBehaviour
                  optionsMenu.SetActive(false);
              }
              */
-        }
+        //}
        
         
     }

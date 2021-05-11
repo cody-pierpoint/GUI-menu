@@ -8,4 +8,8 @@ public class DisableGameObject : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    public void Enable()
+    {
+        gameObject.SetActive(true);
+    }
 }
