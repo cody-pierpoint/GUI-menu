@@ -12,7 +12,7 @@ public class LoadingLevel : MonoBehaviour
     public Image progressBar;
     public TextMeshProUGUI progressText;
     public GameObject anybuttonPanel;
-    public GameObject mainmenuPanel;
+    public GameObject mainMenuPanel;
     public Animator transitions;
     public float transitionTime = 0f;
     public GameObject fadePanel;
@@ -33,24 +33,14 @@ public class LoadingLevel : MonoBehaviour
         */
     }
 
-    public void OptionsFadein()
-    {
-
-        transitions.SetTrigger("Start");
-
-    }
-    public void OptionsFadeOut()
-    {
-
-        transitions.SetTrigger("End");
-
-    }
-
+ 
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
-        
+        transitions.SetTrigger("End");
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
         loadingScreen.SetActive(true);
+
+
 
         while (!operation.isDone)
         {
@@ -76,7 +66,7 @@ public class LoadingLevel : MonoBehaviour
         transitions.SetTrigger("End");
         yield return new WaitForSeconds(transitionTime);
         StartCoroutine(LoadAsynchronously(sceneIndex));
-        
+
 
     }
 
@@ -94,11 +84,11 @@ public class LoadingLevel : MonoBehaviour
         {
 
             anybuttonPanel.SetActive(false);
-           
+
             if (anybuttonPanel.activeSelf == false)
             {
-                
-                mainmenuPanel.SetActive(true);
+
+                mainMenuPanel.SetActive(true);
 
             }
         }
@@ -113,14 +103,14 @@ public class LoadingLevel : MonoBehaviour
     public void PlayAnimStart()
     {
         StartCoroutine(EnterOptionsAnim());
-        
+
 
 
     }
 
     public void playAnimEnd()
     {
-      StartCoroutine(ExitOptionsAnim());
+        StartCoroutine(ExitOptionsAnim());
     }
     IEnumerator EnterOptionsAnim()
     {
@@ -135,28 +125,29 @@ public class LoadingLevel : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
         //fadepanel.SetActive(true);
-        mainmenuPanel.SetActive(false);
+        mainMenuPanel.SetActive(false);
         optionsPanel.SetActive(true);
 
     }
     IEnumerator ExitOptionsAnim()
     {
         //bool isClosed = false;
-       // isClosed = transitions.GetBool("Closed");
+        // isClosed = transitions.GetBool("Closed");
         fadePanel.SetActive(true);
 
         //transitions.SetBool("Closed", !isClosed);
         transitions.SetTrigger("Test1");
         transitions.SetTrigger("Test2");
         //transitions.SetBool("Closed", isClosed);
-        
+
         yield return new WaitForSeconds(transitionTime);
         optionsPanel.SetActive(false);
-        mainmenuPanel.SetActive(true);
-        
+        mainMenuPanel.SetActive(true);
+
     }
 
-     
+    
+
 
 
 

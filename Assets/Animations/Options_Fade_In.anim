@@ -241,9 +241,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1
-    functionName: 
-    data: 
-    objectReferenceParameter: {fileID: 0}
+    functionName: Disable()
+    data: End
+    objectReferenceParameter: {fileID: 11500000, guid: f45bd3b9d806a984985b81489e7cc8bf, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

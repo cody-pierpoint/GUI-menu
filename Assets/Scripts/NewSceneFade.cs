@@ -5,8 +5,12 @@ using UnityEngine;
 public class NewSceneFade : MonoBehaviour
 {
     //[SerializeField] private LoadingLevel loadLevel;
-    [SerializeField] Animator transitions;
-    [SerializeField] GameObject fadePanel;
+    [SerializeField] private Animator transitions;
+    [SerializeField] private GameObject fadePanel;
+     private LoadingLevel loadlevel;
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject optionsPanel;
+    
 
 
     // Start is called before the first frame update
@@ -21,4 +25,8 @@ public class NewSceneFade : MonoBehaviour
     {
         
     }
+
+    
+
+
 }
