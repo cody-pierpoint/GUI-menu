@@ -31,7 +31,7 @@ public class KeybindingHandler : MonoBehaviour
         {
             baseSetup[i].keyDisplayText.transform.parent.name = baseSetup[i].keyName; // 
 
-            Keys.Add(baseSetup[i].keyName, (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(baseSetup[i].keyName, baseSetup[i].defaultKey)));
+            Keys.Add(baseSetup[i].keyName, (KeyCode)System.Enum.Parse(typeof(KeyCode),baseSetup[i].defaultKey)); //PlayerPrefs.GetString(baseSetup[i].keyName, baseSetup[i].defaultKey)));
 
             baseSetup[i].keyDisplayText.text = Keys[baseSetup[i].keyName].ToString();
 
@@ -51,8 +51,8 @@ public class KeybindingHandler : MonoBehaviour
     {
         for (int i = 0; i < baseSetup.Length; i++)
         {
-            //string newKey = Keys[baseSetup[i].keyName].ToString();
-            //newKey = PlayerPrefs.GetString(baseSetup[i].keyName);
+            string newKey = Keys[baseSetup[i].keyName].ToString();
+            newKey = PlayerPrefs.GetString(baseSetup[i].keyName);
             baseSetup[i].keyDisplayText.transform.parent.GetComponent<Image>().color = Color.white;
         }
     }

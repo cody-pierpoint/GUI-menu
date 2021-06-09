@@ -18,12 +18,17 @@ public class FirstPersonFlight : MonoBehaviour
 
     float yaw = 0;                                                                      //Easier to keep track of our rotation here
     float pitch = 0;
+    Vector3 playerposition;
+    Quaternion playerRot;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         form = GetComponent<Transform>();                                               //Get the components nessecary
         cam = transform.GetChild(0);
+        //Load();
+
     }
 
     // Update is called once per frame
@@ -49,4 +54,25 @@ public class FirstPersonFlight : MonoBehaviour
             transform.Translate(-cam.up * moveSpeed * Time.deltaTime);                  //Press Left CTRL (or left mouse) and move down.
         }
     }
+
+    //public void save()
+    //{
+    //    SavingLoading.SavePlayer(this);
+    //}
+    //public void Load()
+    //{
+    //    PlayerData data = SavingLoading.LoadPlayer();
+    //    if (data != null)
+    //    {
+    //        playerposition.x = data.position[0];
+    //        playerposition.y = data.position[1];
+    //        playerposition.z = data.position[2];
+
+    //        playerRot.x = data.rotation[0];
+    //        playerRot.x = data.rotation[1];
+    //        playerRot.x = data.rotation[2];
+    //        playerRot.x = data.rotation[3];
+
+    //    }
+    //}
 }

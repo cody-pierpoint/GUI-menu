@@ -837,17 +837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &439210509 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1627979698207658248, guid: 6f0d63304a6b8354282afa2b5b252374, type: 3}
-  m_PrefabInstance: {fileID: 1212610441}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b8a02c088af254cb40222f7e8ab016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &523390317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1043,18 +1032,6 @@ MonoBehaviour:
       - m_Target: {fileID: 637941113}
         m_TargetAssemblyTypeName: LoadingLevel, Assembly-CSharp
         m_MethodName: PlayAnimStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 439210509}
-        m_TargetAssemblyTypeName: KeybindingHandler, Assembly-CSharp
-        m_MethodName: LoadKey
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1297,10 +1274,27 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5569375878211993878, guid: a781b4be4f9a788468e26d618ca6c633, type: 3}
   m_PrefabInstance: {fileID: 637941112}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 726521442}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aaca726cc6a7d5543b010660c6551406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &726521442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5569375878211993874, guid: a781b4be4f9a788468e26d618ca6c633, type: 3}
+  m_PrefabInstance: {fileID: 637941112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &726521445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726521442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8f09d5fe1c1524c96f238ff890ff0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &767496026
@@ -1810,6 +1804,10 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetFullscreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1627979697285537606, guid: 6f0d63304a6b8354282afa2b5b252374, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1627979697285537607, guid: 6f0d63304a6b8354282afa2b5b252374, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1833,6 +1831,10 @@ PrefabInstance:
     - target: {fileID: 1627979697285537607, guid: 6f0d63304a6b8354282afa2b5b252374, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -840.21375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627979697319250197, guid: 6f0d63304a6b8354282afa2b5b252374, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1627979697319250197, guid: 6f0d63304a6b8354282afa2b5b252374, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2695,6 +2697,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 973754375}
+        m_TargetAssemblyTypeName: FirstPersonFlight, Assembly-CSharp
+        m_MethodName: save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1698437030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2829,7 +2843,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5569375878211993873, guid: a781b4be4f9a788468e26d618ca6c633, type: 3}
   m_PrefabInstance: {fileID: 637941112}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 726521442}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 163852cca1fa03d4799e85703decb68c, type: 3}

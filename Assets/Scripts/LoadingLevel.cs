@@ -56,7 +56,7 @@ public class LoadingLevel : MonoBehaviour
     {
         //transitions.SetTrigger("End");
         StartCoroutine(loadLevelAnim(sceneIndex));
-
+       // save();
 
     }
 
