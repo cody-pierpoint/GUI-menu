@@ -20,33 +20,32 @@ public class LoadingLevel : MonoBehaviour
     private bool isOpen;
     private void Start()
     {
+        //fade panel is active
         fadePanel.SetActive(true);
+        //play animation "Start"
         transitions.SetTrigger("Start");
-       // anybuttonPanel.SetActive(true);
-        /*new WaitForSeconds(transitionTime);
-        if(transitionTime == 1f)
-        {
-            fadepanel.SetActive(false);
-            menuPanel.SetActive(true);
-            
-        }
-        */
     }
 
  
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
+        //play animation "End"
         transitions.SetTrigger("End");
+        
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        //loading screen is active
         loadingScreen.SetActive(true);
 
 
-
+        //while operation is not done
         while (!operation.isDone)
         {
+            //progress = operation progress / 0.9;
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
 
+            //fill progress bar amount based on progress
             progressBar.fillAmount = progress;
+            //loading text display progress as %
             progressText.text = "Loading " + progress * 100 + "%";
             yield return null;
 
@@ -54,17 +53,22 @@ public class LoadingLevel : MonoBehaviour
     }
     public void LoadLevel(int sceneIndex)
     {
-        //transitions.SetTrigger("End");
+       
+        //start coroutine
         StartCoroutine(loadLevelAnim(sceneIndex));
-       // save();
+    
 
     }
 
     IEnumerator loadLevelAnim(int sceneIndex)
     {
+        //fadepanel is active
         fadePanel.SetActive(true);
+        //play animation "End"
         transitions.SetTrigger("End");
+        //wait for transition time
         yield return new WaitForSeconds(transitionTime);
+        //start coroutine
         StartCoroutine(LoadAsynchronously(sceneIndex));
 
 
@@ -78,27 +82,8 @@ public class LoadingLevel : MonoBehaviour
 
     }
 
-    public void PressAnyButton()
-    {
-       // if (Input.anyKey && anybuttonPanel.activeSelf)
-        {
-
-           // anybuttonPanel.SetActive(false);
-
-           // if (anybuttonPanel.activeSelf == false)
-            {
-
-          //      mainMenuPanel.SetActive(true);
-
-            }
-        }
 
 
-    }
-    public void Update()
-    {
-        PressAnyButton();
-    }
 
     public void PlayAnimStart()
     {
@@ -114,34 +99,32 @@ public class LoadingLevel : MonoBehaviour
     }
     IEnumerator EnterOptionsAnim()
     {
-        //isOpen = true;
-        //isOpen = transitions.GetBool("Open");
+        //fade panel is active
         fadePanel.SetActive(true);
+        //play fade in and fade out animation
         transitions.SetTrigger("OptionsFadeIn");
         transitions.SetTrigger("OpttionsFadeOut");
-        //mainmenuPanel.SetActive(false);
-        //transitions.SetBool("Open", isOpen);
-        //transitions.SetBool("Open", !isOpen);
-
+        //wait for transition time
         yield return new WaitForSeconds(transitionTime);
-        //fadepanel.SetActive(true);
+        //set mainmenu panel is set to inactive
         mainMenuPanel.SetActive(false);
+        //set options panel is set in active
         optionsPanel.SetActive(true);
 
     }
     IEnumerator ExitOptionsAnim()
     {
-        //bool isClosed = false;
-        // isClosed = transitions.GetBool("Closed");
+        //fade panel is active
         fadePanel.SetActive(true);
 
-        //transitions.SetBool("Closed", !isClosed);
+        //play animations "Test1" and "Test2"
         transitions.SetTrigger("Test1");
         transitions.SetTrigger("Test2");
-        //transitions.SetBool("Closed", isClosed);
-
+        //wait for transition time
         yield return new WaitForSeconds(transitionTime);
+        //options panel is inactive
         optionsPanel.SetActive(false);
+        //main menu panel is active
         mainMenuPanel.SetActive(true);
 
     }

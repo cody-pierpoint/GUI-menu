@@ -12,8 +12,6 @@ public class AnyButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //fadePanel.SetActive(true);
-        //transitions.SetTrigger("Start");
         pressAnyButtonPanel.SetActive(true);
     }
 
@@ -25,12 +23,15 @@ public class AnyButton : MonoBehaviour
 
     void PressAnyButton()
     {
+        //if any key is pressed and anybutton panel is active
         if(Input.anyKey && pressAnyButtonPanel.activeSelf)
         {
+            //any button panel is not active
             pressAnyButtonPanel.SetActive(false);
-            
+            //if any button panel is not active
             if(pressAnyButtonPanel.activeSelf == false)
             {
+                // main menu is active
                 mainMenuPanel.SetActive(true);
             }
 
